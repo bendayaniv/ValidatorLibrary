@@ -90,6 +90,12 @@ passwordValidator.addValidationRule(new MinLengthValidationRule(8));
 ![At-Least-8-Chars](https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/cab7e585-92c4-4809-bfce-707e8637c2ff)
 
 ```java
+passwordValidator.addValidationRule(new MaxLengthValidationRule(10));
+```
+![Max-Of-10-Chars](https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/1794f6d3-b35c-48e7-a6ad-4561b05034af)
+
+
+```java
 passwordValidator.addValidationRule(new MustContainLowerCaseValidationRule(1));
 ```
 ![At-Least-1-Lower-case](https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/de18e284-6811-4c7c-9698-ce1f37ec85fe)
