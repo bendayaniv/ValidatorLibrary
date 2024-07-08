@@ -4,7 +4,7 @@ An library who made for Android Studio developers to help you to validate your u
 ## Validate Options
 - Date
 ```java
-new DateValidationRule("dd/mm/yyyy")
+new DateValidationRule(String dateFormat)
 ```
 - Email
 ```java
@@ -12,11 +12,11 @@ new EmailValidationRule()
 ```
 - Max input length
 ```java
-new MinLengthValidationRule(10)
+new MinLengthValidationRule(int min)
 ```
 - Min input length
 ```java
-new MaxLengthValidationRule(10)
+new MaxLengthValidationRule(int max)
 ```
 - Number
 ```java
@@ -24,19 +24,19 @@ new MustBeNumberValidationRule()
 ```
 - Lower case
 ```java
-new MustContainLowerCaseValidationRule(1)
+new MustContainLowerCaseValidationRule(int amount)
 ```
 - Upper case
 ```java
-new MustContainUpperCaseValidationRule(1)
+new MustContainUpperCaseValidationRule(int amount)
 ```
 - Contain numbers
 ```java
-new MustContainNumberValidationRule(1)
+new MustContainNumberValidationRule(int amount)
 ```
 - Contain special characters
 ```java
-new MustContainSpecialCharacterValidationRule(1)
+new MustContainSpecialCharacterValidationRule(int amount)
 ```
 - Url
 ```java
