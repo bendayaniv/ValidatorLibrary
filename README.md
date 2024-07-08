@@ -70,7 +70,7 @@ GeneralTextValidator passwordValidator = new GeneralTextValidator();
 
 - Give the validator rules
 ```java
-passwordValidator.addValidationRule(new ValidationRule() {
+ValidationRule notEmptyRule = new ValidationRule() {
     @Override
     public boolean isValid(String input) {
         return !input.isEmpty();
@@ -80,7 +80,8 @@ passwordValidator.addValidationRule(new ValidationRule() {
     public String getErrorMessage() {
         return "This field cannot be empty";
     }
-});
+};
+passwordValidator.addValidationRule(notEmptyRule);
 ```
 ![Empty-Filed](https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/94d60878-3c69-4e8a-9d99-b927443489dd)
 
