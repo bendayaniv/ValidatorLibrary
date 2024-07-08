@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ValidatorLibrary"
 include(":app")
- 
+include(":validator")
