@@ -4,43 +4,47 @@ An library who made for Android Studio developers to help you to validate your u
 ## Validate Options
 - Date
 ```java
-new DateValidationRule(String dateFormat)
+new Date(String dateFormat)
 ```
 - Email
 ```java
-new EmailValidationRule()
+new Email()
 ```
 - Max input length
 ```java
-new MinLengthValidationRule(int min)
+new MinLength(int min)
 ```
 - Min input length
 ```java
-new MaxLengthValidationRule(int max)
+new MaxLength(int max)
 ```
 - Number
 ```java
-new MustBeNumberValidationRule()
+new Number()
 ```
 - Lower case
 ```java
-new MustContainLowerCaseValidationRule(int amount)
+new ContainLowerCase(int amount)
 ```
 - Upper case
 ```java
-new MustContainUpperCaseValidationRule(int amount)
+new ContainUpperCase(int amount)
 ```
 - Contain numbers
 ```java
-new MustContainNumberValidationRule(int amount)
+new ContainNumber(int amount)
 ```
 - Contain special characters
 ```java
-new MustContainSpecialCharacterValidationRule(int amount)
+new ContainSpecialCharacter(int amount)
 ```
 - Url
 ```java
-new UrlValidationRule()
+new Url()
+```
+- Letters
+```java
+new Letters()
 ```
 - Can make your own validation
 ```java
