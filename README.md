@@ -61,7 +61,7 @@ import com.example.validator.Rules.*;
 
 - Find the View
 ```java
-CustomEditText emailEditText = findViewById(R.id.emailEditText);
+CustomEditText passwordEditText = findViewById(R.id.passwordEditText);
 ```
 - Create the validator and give him rules
 ```java
@@ -72,16 +72,16 @@ passwordValidator.addValidationRule(new MustContainUpperCaseValidationRule(1));
 passwordValidator.addValidationRule(new MustContainNumberValidationRule(1));
 passwordValidator.addValidationRule(new MustContainSpecialCharacterValidationRule(1));
 passwordValidator.addValidationRule(new ValidationRule() {
-@Override
-public boolean isValid(String input) {
-    return !input.isEmpty();
-}
+    @Override
+    public boolean isValid(String input) {
+        return !input.isEmpty();
+    }
 
-@Override
-public String getErrorMessage() {
-    return "This field cannot be empty";
-}
-        });
+    @Override
+    public String getErrorMessage() {
+        return "This field cannot be empty";
+    }
+});
 ```
 
 
