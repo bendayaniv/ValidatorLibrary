@@ -1,9 +1,9 @@
 package com.example.validator.Rules;
 
-public class MinLengthValidationRule implements ValidationRule {
+public class MinLength implements ValidationRule {
     private final int minLength;
 
-    public MinLengthValidationRule(int minLength) {
+    public MinLength(int minLength) {
         this.minLength = minLength;
     }
 

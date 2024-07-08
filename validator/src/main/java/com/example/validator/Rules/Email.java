@@ -1,6 +1,6 @@
 package com.example.validator.Rules;
 
-public class EmailValidationRule implements ValidationRule {
+public class Email implements ValidationRule {
     private static final String EMAIL_PATTERN =
             "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
 

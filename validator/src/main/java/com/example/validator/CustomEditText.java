@@ -3,6 +3,8 @@ package com.example.validator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 
 import androidx.annotation.ColorInt;
@@ -15,8 +17,8 @@ import java.util.Objects;
 public class CustomEditText extends TextInputEditText {
 
     private Validator validator;
-    private int errorColor = 0xFFFF0000; // Default error color (Red)
-    private int successColor = 0xFF00FF00; // Default success color (Green)
+    private int errorColor;
+    private int successColor;
 
     public CustomEditText(Context context) {
         super(context);
@@ -44,6 +46,23 @@ public class CustomEditText extends TextInputEditText {
 
             a.recycle();
         }
+
+        addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No action needed before text change
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No action needed during text change
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validate();
+            }
+        });
     }
 
     public void setValidator(Validator validator) {

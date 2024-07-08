@@ -1,13 +1,15 @@
 package com.example.validatorlibrary;
 
-import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.validator.*;
 import com.example.validator.Rules.*;
-import com.google.android.material.textfield.TextInputLayout;
+import com.example.validator.Rules.Number;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,19 +24,14 @@ public class MainActivity extends AppCompatActivity {
 //            return insets;
 //        });
 
-        TextInputLayout emailLayout = findViewById(R.id.emailLayout);
         CustomEditText emailEditText = findViewById(R.id.emailEditText);
 
-        TextInputLayout passwordLayout = findViewById(R.id.passwordLayout);
         CustomEditText passwordEditText = findViewById(R.id.passwordEditText);
 
-        TextInputLayout phoneLayout = findViewById(R.id.phoneLayout);
         CustomEditText phoneEditText = findViewById(R.id.phoneEditText);
 
-        TextInputLayout generalLayout = findViewById(R.id.generalLayout);
         CustomEditText nameEditText = findViewById(R.id.nameEditText);
 
-        TextInputLayout dateLayout = findViewById(R.id.dateLayout);
         CustomEditText dateEditText = findViewById(R.id.dateEditText);
 
         Button submitButton = findViewById(R.id.submitButton);
@@ -43,38 +40,53 @@ public class MainActivity extends AppCompatActivity {
 
         // Password validator
         GeneralTextValidator passwordValidator = new GeneralTextValidator();
-        passwordValidator.addValidationRule(new MinLengthValidationRule(8));
-        passwordValidator.addValidationRule(new MustContainLowerCaseValidationRule(1));
-        passwordValidator.addValidationRule(new MustContainUpperCaseValidationRule(1));
-        passwordValidator.addValidationRule(new MustContainNumberValidationRule(1));
-        passwordValidator.addValidationRule(new MustContainSpecialCharacterValidationRule(1));
 
-        validationManager.addField(passwordEditText, passwordValidator);
+        ValidationRule notEmptyRule = new ValidationRule() {
+            @Override
+            public boolean isValid(String input) {
+                return !input.isEmpty();
+            }
+
+            @Override
+            public String getErrorMessage() {
+                return "This field cannot be empty";
+            }
+        };
+        passwordValidator.addValidationRule(notEmptyRule);
+        passwordValidator.addValidationRule(new MinLength(8));
+        passwordValidator.addValidationRule(new MaxLength(10));
+        passwordValidator.addValidationRule(new ContainLowerCase(1));
+        passwordValidator.addValidationRule(new ContainUpperCase(1));
+        passwordValidator.addValidationRule(new ContainNumber(1));
+        passwordValidator.addValidationRule(new ContainSpecialCharacter(1));
+
+        validationManager.addField(passwordEditText, passwordValidator, Color.BLUE, Constants.SUCCESS);
 
         // Email validator
         GeneralTextValidator emailValidator = new GeneralTextValidator();
-        emailValidator.addValidationRule(new EmailValidationRule());
+        emailValidator.addValidationRule(new Email());
 
-        validationManager.addField(emailEditText, emailValidator);
+        validationManager.addField(emailEditText, emailValidator, Color.BLACK, Constants.ERROR);
 
         // Phone number validator
         GeneralTextValidator phoneValidator = new GeneralTextValidator();
-        phoneValidator.addValidationRule(new MinLengthValidationRule(10));
-        phoneValidator.addValidationRule(new MaxLengthValidationRule(10));
-        phoneValidator.addValidationRule(new MustBeNumberValidationRule());
+        phoneValidator.addValidationRule(new MinLength(10));
+        phoneValidator.addValidationRule(new MaxLength(10));
+        phoneValidator.addValidationRule(new Number());
 
         validationManager.addField(phoneEditText, phoneValidator);
 
         // Name validator
         GeneralTextValidator nameValidator = new GeneralTextValidator();
-        nameValidator.addValidationRule(new MinLengthValidationRule(3));
-        nameValidator.addValidationRule(new MaxLengthValidationRule(50));
+        nameValidator.addValidationRule(new MinLength(3));
+        nameValidator.addValidationRule(new MaxLength(50));
+        nameValidator.addValidationRule(new Letters());
 
         validationManager.addField(nameEditText, nameValidator);
 
         // Date validator
         GeneralTextValidator dateValidator = new GeneralTextValidator();
-        dateValidator.addValidationRule(new DateValidationRule("dd/mm/yyyy"));
+        dateValidator.addValidationRule(new Date("dd/mm/yyyy"));
 
         validationManager.addField(dateEditText, dateValidator);
 

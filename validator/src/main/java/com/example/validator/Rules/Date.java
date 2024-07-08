@@ -4,12 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-public class DateValidationRule implements ValidationRule {
+public class Date implements ValidationRule {
 
     private final String dateFormat;
     private String errorMessage;
 
-    public DateValidationRule(String dateFormat) {
+    public Date(String dateFormat) {
         this.dateFormat = dateFormat;
         this.errorMessage = "Invalid date format. Please use " + dateFormat;
     }

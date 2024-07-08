@@ -1,9 +1,9 @@
 package com.example.validator.Rules;
 
-public class MustContainNumberValidationRule implements ValidationRule {
+public class ContainNumber implements ValidationRule {
     private final int minCount;
 
-    public MustContainNumberValidationRule(int minCount) {
+    public ContainNumber(int minCount) {
         this.minCount = minCount;
     }
 

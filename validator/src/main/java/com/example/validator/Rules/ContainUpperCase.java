@@ -1,9 +1,9 @@
 package com.example.validator.Rules;
 
-public class MustContainUpperCaseValidationRule implements ValidationRule {
+public class ContainUpperCase implements ValidationRule {
     private final int minCount;
 
-    public MustContainUpperCaseValidationRule(int minCount) {
+    public ContainUpperCase(int minCount) {
         this.minCount = minCount;
     }
 

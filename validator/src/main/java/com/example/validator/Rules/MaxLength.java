@@ -1,9 +1,9 @@
 package com.example.validator.Rules;
 
-public class MaxLengthValidationRule implements ValidationRule {
+public class MaxLength implements ValidationRule {
     private final int maxLength;
 
-    public MaxLengthValidationRule(int maxLength) {
+    public MaxLength(int maxLength) {
         this.maxLength = maxLength;
     }
 

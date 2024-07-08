@@ -1,10 +1,10 @@
 package com.example.validator.Rules;
 
-public class MustContainSpecialCharacterValidationRule implements ValidationRule {
+public class ContainSpecialCharacter implements ValidationRule {
 
     private final int minCount;
 
-    public MustContainSpecialCharacterValidationRule(int minCount) {
+    public ContainSpecialCharacter(int minCount) {
         this.minCount = minCount;
     }
 

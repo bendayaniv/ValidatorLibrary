@@ -1,13 +1,13 @@
 package com.example.validator.Rules;
 
-public class MustBeNumberValidationRule implements ValidationRule {
+public class Letters implements ValidationRule {
     @Override
     public boolean isValid(String input) {
-        return input.matches("^\\d+$");
+        return input.matches("[a-zA-Z ]+");
     }
 
     @Override
     public String getErrorMessage() {
-        return "Input must be a number";
+        return "Can only contain letters";
     }
 }
