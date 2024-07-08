@@ -59,7 +59,7 @@ import com.example.validator.*;
 import com.example.validator.Rules.*;
 ```
 
-- Find the View
+- Find View
 ```java
 CustomEditText passwordEditText = findViewById(R.id.passwordEditText);
 ```
@@ -67,7 +67,7 @@ CustomEditText passwordEditText = findViewById(R.id.passwordEditText);
 ```java
 GeneralTextValidator passwordValidator = new GeneralTextValidator();
 ```
-- 
+
 - Give the validator rules
 ```java
 passwordValidator.addValidationRule(new ValidationRule() {
