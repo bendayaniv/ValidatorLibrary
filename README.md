@@ -10,6 +10,7 @@ An library who made for Android Studio developers to help you to validate your u
 - Contain numbers
 - Contain special characters
 - Url
+- Can make your own validation
 
 
 ## Installation - Gradle
@@ -35,20 +36,60 @@ dependencies {
 ```
 
 
+## Example of Implementation
+In your xml file:
+```java
+<com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.example.validator.CustomEditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+```
 
+In your java file:
+- Import the library
+```java
+import com.example.validator.*;
+import com.example.validator.Rules.*;
+```
 
-<button onclick="copyToClipboard('code-snippet')">Copy Code</button>
-
-<script>
-function copyToClipboard(id) {
-  var code = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(code).then(function() {
-    console.log('Code copied to clipboard');
-  }, function(err) {
-    console.error('Error in copying code: ', err);
-  });
+- Find the View
+```java
+CustomEditText emailEditText = findViewById(R.id.emailEditText);
+```
+- Create the validator and give him rules
+```java
+GeneralTextValidator passwordValidator = new GeneralTextValidator();
+passwordValidator.addValidationRule(new MinLengthValidationRule(8));
+passwordValidator.addValidationRule(new MustContainLowerCaseValidationRule(1));
+passwordValidator.addValidationRule(new MustContainUpperCaseValidationRule(1));
+passwordValidator.addValidationRule(new MustContainNumberValidationRule(1));
+passwordValidator.addValidationRule(new MustContainSpecialCharacterValidationRule(1));
+passwordValidator.addValidationRule(new ValidationRule() {
+@Override
+public boolean isValid(String input) {
+    return !input.isEmpty();
 }
-</script>
-<pre id="code-snippet">
-console.log('Hello, world!');
-</pre>
+
+@Override
+public String getErrorMessage() {
+    return "This field cannot be empty";
+}
+        });
+```
+
+
+- Creating ValidationManager and add it to him the validators (GeneralTextValidator) and the CustomEditText
+```java
+ValidationManager validationManager = new ValidationManager();
+validationManager.addField(passwordEditText, passwordValidator);
+```
+
+
+
