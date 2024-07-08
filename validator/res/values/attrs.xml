@@ -1,0 +1,7 @@
+<!-- res/values/attrs.xml -->
+<resources>
+    <declare-styleable name="CustomEditText">
+        <attr name="android:hint" />
+        <!-- Add any other custom attributes here -->
+    </declare-styleable>
+</resources>

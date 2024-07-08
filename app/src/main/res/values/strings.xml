@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ValidatorLibrary</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="website_url">Website URL</string>
+    <string name="date_dd_mm_yyyy">Date (dd/MM/yyyy)</string>
+    <string name="submit">Submit</string>
+    <string name="name">Name</string>
 </resources>
