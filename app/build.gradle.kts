@@ -41,5 +41,6 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation(project(":validator"))
+//    implementation(project(":validator"))
+    implementation("com.github.bendayaniv:ValidatorLibrary:1.0.0")
 }
