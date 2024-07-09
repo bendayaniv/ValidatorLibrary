@@ -151,7 +151,7 @@ In build.gradle.kts of the app:
 ```java
 dependencies {
     ...
-    implementation("com.github.bendayaniv:ValidatorLibrary:1.0.1")
+    implementation("com.github.bendayaniv:ValidatorLibrary:1.0.2")
     ...
 }
 ```

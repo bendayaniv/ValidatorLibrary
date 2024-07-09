@@ -41,6 +41,6 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation(project(":validator"))
-//    implementation(libs.validatorlibrary)
+//    implementation(project(":validator"))
+    implementation(libs.validatorlibrary)
 }
