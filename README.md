@@ -1,7 +1,6 @@
 # Validator Library
 
 An library who made for Android Studio developers to help them to validate their users inputs
-![1](https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/49f93860-b79d-465a-8e3c-67bf1b783796)
 
 ## Content
 
