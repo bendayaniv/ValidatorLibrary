@@ -2,10 +2,10 @@
 An library who made for Android Studio developers to help you to validate your users inputs
 
 ## Content
-*[Validate Options](#validate-options)
-*[Change Error and Success Colors](#change-error-and-success-colors)
-*[Installation - Gradle](#installation---gradle)
-*[Example of Implementation](#example-of-implementation)
+* [Validate Options](#validate-options)
+* [Change Error and Success Colors](#change-error-and-success-colors)
+* [Installation - Gradle](#installation---gradle)
+* [Example of Implementation](#example-of-implementation)
 
 
 ## Validate Options
