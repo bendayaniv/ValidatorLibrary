@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         passwordValidator.addValidationRule(notEmptyRule);
+//        passwordValidator.addValidationRule(new ContainLetter(2));
         passwordValidator.addValidationRule(new MinLength(8));
         passwordValidator.addValidationRule(new MaxLength(10));
         passwordValidator.addValidationRule(new ContainLowerCase(1));
@@ -78,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Name validator
         GeneralTextValidator nameValidator = new GeneralTextValidator();
-        nameValidator.addValidationRule(new MinLength(3));
-        nameValidator.addValidationRule(new MaxLength(50));
-        nameValidator.addValidationRule(new Letters());
+//        nameValidator.addValidationRule(new MinLength(3));
+//        nameValidator.addValidationRule(new MaxLength(50));
+        nameValidator.addValidationRule(new Name());
 
         validationManager.addField(nameEditText, nameValidator);
 

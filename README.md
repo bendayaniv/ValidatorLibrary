@@ -72,10 +72,16 @@ new ContainSpecialCharacter(int amount)
 new Url()
 ```
 
-- Letters
+- Name
 
 ```java
-new Letters()
+new Name()
+```
+
+- Contain letters
+
+```java
+new ContainLetters(int amount)
 ```
 
 - Can make your own validation
