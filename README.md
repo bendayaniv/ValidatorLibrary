@@ -6,6 +6,7 @@ An library who made for Android Studio developers to help them to validate their
 * [Change Error and Success Colors](#change-error-and-success-colors)
 * [Installation - Gradle](#installation---gradle)
 * [Example of Implementation](#example-of-implementation)
+* [Validation Test](#validation-test)
 
 
 ## Validate Options
@@ -204,6 +205,15 @@ validationManager.addField(passwordEditText, passwordValidator);
 
 ![Valid](https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/f91a2661-5cc7-42aa-9866-d58ec2c35382)
 
+## Validation Test
 
+The library automatically checks the input whenever it changes and shows the error message if the input is invalid, but to do a manual check for all the validation together in the same time, you can use the following code:
+```java
+if (validationManager.validate()) {
+    // The input is valid
+} else {
+    // The input is invalid
+}
+```
 
 
