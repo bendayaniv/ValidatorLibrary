@@ -133,7 +133,8 @@ In setting.gradle.kts:
 dependencyResolutionManagement {
     repositories {
         ...
-        maven("https://jitpack.io")
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
         ...
     }
 }
