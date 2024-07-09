@@ -213,7 +213,6 @@ passwordValidator.
 
 addValidationRule(notEmptyRule);
 ```
-
 ![Empty-Filed](https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/94d60878-3c69-4e8a-9d99-b927443489dd)
 
 ```java
