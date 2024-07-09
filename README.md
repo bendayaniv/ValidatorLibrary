@@ -1,5 +1,5 @@
 # Validator Library
-An library who made for Android Studio developers to help you to validate your users inputs
+An library who made for Android Studio developers to help them to validate their users inputs
 
 ## Content
 * [Validate Options](#validate-options)
