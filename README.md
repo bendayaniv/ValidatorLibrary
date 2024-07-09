@@ -72,7 +72,7 @@ new ContainSpecialCharacter(int amount)
 new Url()
 ```
 
-- Name :name_badge:	
+- Name
 
 ```java
 new Name()
