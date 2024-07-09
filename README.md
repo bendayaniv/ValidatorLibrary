@@ -72,7 +72,7 @@ new ContainSpecialCharacter(int amount)
 new Url()
 ```
 
-- Name
+- Name :name_badge:	
 
 ```java
 new Name()
@@ -102,7 +102,7 @@ new ValidationRule() {
 ;
 ```
 
-## Change Error and Success Colors
+## Change Error and Success Colors :paintbrush:	
 
 You can change colors when adding new field into the ValidationManager (the default colors are -
 red (0xFFFF0000) for error and green (0xFF00FF00) for success)
