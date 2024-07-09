@@ -1,3 +1,4 @@
+<style>
 /* Enable smooth scrolling */
 @media screen and (prefers-reduced-motion: no-preference) {
 html {
@@ -6,7 +7,6 @@ scroll-behavior: smooth;
 }
 
 /* Style the button */
-<style>
 .top-link {
 transition:       all .25s ease-in-out;
 position:         fixed;
