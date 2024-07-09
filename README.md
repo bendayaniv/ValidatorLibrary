@@ -1,4 +1,4 @@
-# Validator Library
+# Validator Library :heavy_check_mark:
 
 An library who made for Android Studio developers to help them to validate their users inputs
 
