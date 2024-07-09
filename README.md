@@ -64,7 +64,7 @@ new ValidationRule() {
 ## Change Error and Success Colors
 
 You can change colors when adding new field into the ValidationManager (the default colors are - red (0xFFFF0000) for error and green (0xFF00FF00) for success
-- Changing both colors
+- Changing both colors)
 ```java
 validationManager.addField(CustomEditText, GeneralTextValidator, error_color(example - Color.BLACK), success_color(exampel - Color.BLUE));
 ```
