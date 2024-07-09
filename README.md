@@ -6,6 +6,7 @@ scroll-behavior: smooth;
 }
 
 /* Style the button */
+<style>
 .top-link {
 transition:       all .25s ease-in-out;
 position:         fixed;
@@ -24,6 +25,7 @@ width:            1em;
 height:           1em;
 background-color: #F8F8F8;
 }
+</style>
 
 <a class="top-link hide" href="#top">↑</a>
 <a name="top"></a>
