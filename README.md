@@ -205,14 +205,14 @@ The `RuleBuilder` class offers methods to compose rules:
 
 ```java
 ValidationRule complexRule = RuleBuilder.and(
-    new MinLength(8),
+    RuleBuilder.withPriority(new MinLength(8), 2),  // Higher priority
     RuleBuilder.or(
         RuleBuilder.and(
             new ContainLowerCase(1),
             new ContainUpperCase(1),
             new ContainNumber(1)
         ),
-        new ContainSpecialCharacter(2)
+        RuleBuilder.withPriority(new ContainSpecialCharacter(2), 1)  // Medium priority
     ),
     RuleBuilder.not(new GeneralContain("password"))
 );
@@ -221,11 +221,15 @@ passwordValidator.addValidationRule(complexRule);
 ```
 
 This complex rule ensures that the password:
-1. Is at least 8 characters long
-2. Either contains at least one lowercase, one uppercase, and one number, OR contains at least two special characters
+1. Is at least 8 characters long (high priority)
+2. Either contains at least one lowercase, one uppercase, and one number, OR contains at least two special characters (special character rule has medium priority)
 3. Does not contain the word "password"
 
-By using rule composition, you can create sophisticated validation logic tailored to your specific requirements.
+The use of `withPriority` in this example means that:
+- The minimum length requirement will be checked first and its error message (if any) will be displayed with highest priority.
+- If the special character rule fails, its error message will be shown before the lowercase/uppercase/number combination, but after the length requirement.
+
+By using rule composition and priorities, you can create sophisticated validation logic tailored to your specific requirements and control the order in which error messages are displayed to the user.
 
 ## 📱 Example App
 
