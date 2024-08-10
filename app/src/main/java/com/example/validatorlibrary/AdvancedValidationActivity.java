@@ -28,18 +28,18 @@ public class AdvancedValidationActivity extends AppCompatActivity {
 
         ValidationManager validationManager = new ValidationManager();
 
-        // Password validator with composition and custom colors
+        // Password validator with composition, priorities, and custom colors
         GeneralTextValidator passwordValidator = new GeneralTextValidator();
         ValidationRule passwordRule = RuleBuilder.and(
-                new MinLength(8),
-                new MaxLength(20),
+                RuleBuilder.withPriority(new MinLength(8), 3), // Highest priority
+                RuleBuilder.withPriority(new MaxLength(20), 2), // Medium priority
                 RuleBuilder.or(
                         RuleBuilder.and(
                                 new ContainLowerCase(1),
                                 new ContainUpperCase(1),
                                 new ContainNumber(1)
                         ),
-                        new ContainSpecialCharacter(2)
+                        RuleBuilder.withPriority(new ContainSpecialCharacter(2), 1) // Lower priority
                 ),
                 RuleBuilder.not(new GeneralContain("password"))
         );
@@ -47,6 +47,8 @@ public class AdvancedValidationActivity extends AppCompatActivity {
         validationManager.addField(passwordEditText, passwordValidator, Color.parseColor("#FF6B6B"), Color.parseColor("#4ECDC4"));
         // Valid password: Str0ngP@ss
         // Invalid password: weakpass (too short, no uppercase, no number, no special chars)
+        // Invalid password with priority: pass (MinLength error will be shown first)
+        // Invalid password with priority: VeryLongPasswordWithoutSpecialChars123 (MaxLength error will be shown before special char requirement)
 
         // Phone number validator with custom error color
         GeneralTextValidator phoneValidator = new GeneralTextValidator();
