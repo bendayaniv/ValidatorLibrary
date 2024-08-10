@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enter_text">הכנס טקסט</string>
+    <string name="default_hint_from_library">רמז דיפולטי מהספרייה</string>
+    <string name="invalid_email_format">פורמט דוא\"ל לא חוקי</string>
+    <string name="input_must_contain_at_least">הקלט חייב להכיל לפחות</string>
+    <string name="letters_s">אותיות</string>
+    <string name="lowercase_letter_s">אותיות קטנות</string>
+    <string name="number_s">מספרים</string>
+    <string name="uppercase_letter_s">אותיות גדולות</string>
+    <string name="special_character_s">תווים מיוחדים</string>
+    <string name="invalid_date_format_please_use">פורמט תאריך לא נכון. בבקשה תשתמש</string>
+    <string name="input_length_must_not_exceed">אורך הקלט אינו יכול לחרוג</string>
+    <string name="characters">תווים</string>
+    <string name="input_length_must_be_at_least">אורך הקלט חייב להיות לפחות</string>
+    <string name="name_cannot_be_empty">השם לא יכול להיות ריק.</string>
+    <string name="name_must_be_at_least">השם חייב להיות לפחות</string>
+    <string name="characters_long">תווים ארוכים.</string>
+    <string name="name_must_not_exceed">השם אינו יכול לחרוג</string>
+    <string name="first_2_characters_cannot_include_space">2 התווים הראשונים אינם יכולים לכלול רווח.</string>
+    <string name="consecutive_spaces_are_not_allowed">2 התווים הראשונים אינם יכולים לכלול רווח.</string>
+    <string name="apostrophe_must_be_followed_by_a_letter">אחרי האפוסתרוף יש להופיע מכתב.</string>
+    <string name="name_cannot_end_with_a_space">השם לא יכול להסתיים ברווח.</string>
+    <string name="consecutive_apostrophes_are_not_allowed">אסור להשתמש באגרות רצופות.</string>
+    <string name="name_must_contain_only_letters_spaces_and_apostrophes">השם חייב להכיל רק אותיות, רווחים ואפוסטרופים.</string>
+    <string name="every_word_in_the_name_must_have_more_than_one_character">כל מילה בשם חייבת לכלול יותר מתו אחד.</string>
+    <string name="please_provide_both_first_and_last_name">נא לציין גם שם פרטי וגם שם משפחה.</string>
+    <string name="name_contains_invalid_characters_use_only_letters_spaces_hyphens_and_apostrophes">השם מכיל תווים לא חוקיים. השתמש רק באותיות, רווחים, מקפים ואפוסטרופים.</string>
+    <string name="input_must_be_a_number">הקלט חייב להיות מספר</string>
+    <string name="value_must_be_at_least">הערך חייב להיות לפחות</string>
+    <string name="value_must_not_exceed">הערך לא יעלה על</string>
+    <string name="invalid_number_format">פורמט מספר לא חוקי</string>
+    <string name="invalid_url_format">פורמט כתובת אתר לא חוקי</string>
+    <string name="url_must_use_an_allowed_protocol">כתובת האתר חייבת להשתמש בפרוטוקול מותר</string>
+</resources>

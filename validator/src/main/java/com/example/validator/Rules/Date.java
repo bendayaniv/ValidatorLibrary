@@ -1,5 +1,7 @@
 package com.example.validator.Rules;
 
+import com.example.validator.Interfaces.ValidationRule;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -7,12 +9,17 @@ import java.util.Locale;
 public class Date implements ValidationRule {
 
     private final String dateFormat;
-    private String errorMessage;
+//    private String errorMessage;
+//    private Context context;
 
     public Date(String dateFormat) {
         this.dateFormat = dateFormat;
-        this.errorMessage = "Invalid date format. Please use " + dateFormat;
     }
+
+//    @Override
+//    public void deliverContext(Context context) {
+//        this.context = context;
+//    }
 
     @Override
     public boolean isValid(String input) {
@@ -28,10 +35,15 @@ public class Date implements ValidationRule {
 
     @Override
     public String getErrorMessage() {
-        return errorMessage;
+        return /*context.getString(R.string.invalid_date_format_please_use)*/"Invalid date format. Please use " + this.dateFormat;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
+    @Override
+    public int getPriority() {
+        return 0;
     }
+
+//    public void setErrorMessage(String errorMessage) {
+//        this.errorMessage = errorMessage;
+//    }
 }

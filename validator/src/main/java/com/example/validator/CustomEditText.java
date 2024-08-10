@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 
 import androidx.annotation.ColorInt;
 
+import com.example.validator.Interfaces.Validator;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -19,6 +20,7 @@ public class CustomEditText extends TextInputEditText {
     private Validator validator;
     private int errorColor;
     private int successColor;
+    private Boolean isRequired = true;
 
     public CustomEditText(Context context) {
         super(context);
@@ -33,6 +35,10 @@ public class CustomEditText extends TextInputEditText {
     public CustomEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
+    }
+
+    public void setIsRequired(Boolean isRequired) {
+        this.isRequired = isRequired;
     }
 
     private void init(Context context, AttributeSet attrs) {
@@ -85,22 +91,25 @@ public class CustomEditText extends TextInputEditText {
         String input = Objects.requireNonNull(getText()).toString();
         TextInputLayout parentLayout = (TextInputLayout) getParent().getParent();
 
-        if (validator.isValid(input)) {
-            setTextColor(successColor);
-            setError(null);
-            if (parentLayout != null) {
-                parentLayout.setBoxStrokeColor(successColor);
-                parentLayout.setHintTextColor(ColorStateList.valueOf(successColor));
+        if(isRequired) {
+            if (validator.isValid(input)) {
+                setTextColor(successColor);
+                setError(null);
+                if (parentLayout != null) {
+                    parentLayout.setBoxStrokeColor(successColor);
+                    parentLayout.setHintTextColor(ColorStateList.valueOf(successColor));
+                }
+                return true;
+            } else {
+                setTextColor(errorColor);
+                setError(validator.getErrorMessage());
+                if (parentLayout != null) {
+                    parentLayout.setBoxStrokeColor(errorColor);
+                    parentLayout.setHintTextColor(ColorStateList.valueOf(errorColor));
+                }
+                return false;
             }
-            return true;
-        } else {
-            setTextColor(errorColor);
-            setError(validator.getErrorMessage());
-            if (parentLayout != null) {
-                parentLayout.setBoxStrokeColor(errorColor);
-                parentLayout.setHintTextColor(ColorStateList.valueOf(errorColor));
-            }
-            return false;
         }
+        return true;
     }
 }

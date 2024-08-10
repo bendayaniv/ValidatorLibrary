@@ -1,204 +1,129 @@
-# Validator Library :heavy_check_mark:
+# 🛡️ Validator Library
 
-An library who made for Android Studio developers to help them to validate their users inputs
+A powerful and flexible validation library for Android developers to effortlessly validate user inputs with customizable rules, visual feedback, and complex rule compositions.
 
-## Content :bookmark_tabs:
+## ✨ Features
 
-* [Validate Options](#validate-options)
-* [Change Error and Success Colors](#change-error-and-success-colors)
-* [Installation - Gradle](#installation---gradle)
-* [Example of Implementation](#example-of-implementation)
-* [Validation Test](#validation-test)
+- 📏 Wide range of built-in validation rules
+- 🎨 Customizable error and success colors
+- 🧩 Easy composition of complex validation logic with RuleBuilder
+- 🚀 Automatic real-time input validation
+- 💼 Create custom validation rules
+- 📱 Example app included in the repository
 
-## Validate Options
+## 📦 Installation
 
-- Date
+Add the following to your `settings.gradle.kts`:
 
-```java
-new Date(String dateFormat)
-```
-
-- Email
-
-```java
-new Email()
-```
-
-- Max input length
-
-```java
-new MinLength(int min)
-```
-
-- Min input length
-
-```java
-new MaxLength(int max)
-```
-
-- Number
-
-```java
-new Number()
-```
-
-- Lower case
-
-```java
-new ContainLowerCase(int amount)
-```
-
-- Upper case
-
-```java
-new ContainUpperCase(int amount)
-```
-
-- Contain numbers
-
-```java
-new ContainNumber(int amount)
-```
-
-- Contain special characters
-
-```java
-new ContainSpecialCharacter(int amount)
-```
-
-- Url
-
-```java
-new Url()
-```
-
-- Name
-
-```java
-new Name()
-```
-
-- Contain letters
-
-```java
-new ContainLetters(int amount)
-```
-
-- Can make your own validation
-
-```java
-new ValidationRule() {
-    @Override
-    public boolean isValid (String input){
-        return the_rule;
-    }
-
-    @Override
-    public String getErrorMessage () {
-        return the_message;
-    }
-}
-
-;
-```
-
-## Change Error and Success Colors :paintbrush:	
-
-You can change colors when adding new field into the ValidationManager (the default colors are -
-red (0xFFFF0000) for error and green (0xFF00FF00) for success)
-
-- Changing both colors
-
-```java
-validationManager.addField(CustomEditText, GeneralTextValidator, error_color(example-Color.BLACK),success_color(exampel -Color.BLUE));
-```
-
-- Changing only the error color
-
-```java
-validationManager.addField(CustomEditText, GeneralTextValidator, error_color(example-Color.BLACK),Constants.ERROR);
-```
-
-- Changing only the success color
-
-```java
-validationManager.addField(CustomEditText, GeneralTextValidator, success_color(exampel-Color.BLUE),Constants.SUCCESS);
-```
-
-- Using the default colors
-
-```java
-validationManager.addField(CustomEditText, GeneralTextValidator);
-```
-
-## Installation - Gradle
-
-In setting.gradle.kts:
-
-```java
+```gradle
 dependencyResolutionManagement {
     repositories {
-        ...
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
-        ...
     }
 }
 ```
 
-In build.gradle.kts of the app:
+Then, add the dependency to your app's `build.gradle.kts`:
 
-```java
+```gradle
 dependencies {
-    ...
-    implementation("com.github.bendayaniv:ValidatorLibrary:1.0.2")
-    ...
+    implementation("com.github.bendayaniv:ValidatorLibrary:1.00.03")
 }
 ```
 
-## Example of Implementation
+## 🧰 Validation Options
 
-In your xml file:
+- 🔤 AllLowerCase: `new AllLowerCase()`
+- 🔠 AllUpperCase: `new AllUpperCase()`
+- 🔤 ContainLetter: `new ContainLetter(int amount)`
+- 🔤 ContainLowerCase: `new ContainLowerCase(int amount)`
+- 🔢 ContainNumber: `new ContainNumber(int amount)`
+- 🔣 ContainSpecialCharacter: `new ContainSpecialCharacter(int amount)`
+- 🔠 ContainUpperCase: `new ContainUpperCase(int amount)`
+- 📅 Date: `new Date(String dateFormat)`
+- ✉️ Email: `new Email()`
+- 🏁 EndsWith: `new EndsWith(String suffix)`
+- 🔍 GeneralContain: `new GeneralContain(String substring)`
+- 🚫 GeneralNotContain: `new GeneralNotContain(String substring)`
+- 📏 MaxLength: `new MaxLength(int max)`
+- 📏 MinLength: `new MinLength(int min)`
+- 👤 Name: `new Name()`
+- 🔢 Number: `new Number()`
+- 🔢 NumericRange: `new NumericRange(double min, double max)`
+- 🏆 PriorityRule: `new PriorityRule(ValidationRule rule, int priority)`
+- 🚩 StartsWith: `new StartsWith(String prefix)`
+- 🌐 Url: `new Url()`
+- ➕ Custom Validation:
+  ```java
+  new ValidationRule() {
+      @Override
+      public boolean isValid(String input) {
+          return /* your validation logic */;
+      }
+
+      @Override
+      public String getErrorMessage() {
+          return "Custom error message";
+      }
+
+      @Override
+      public int getPriority() {
+          return 0;
+      }
+  }
+  ```
+
+## 🎨 Customizing Colors
+
+Customize error and success colors when adding fields to the ValidationManager:
 
 ```java
-<com.google.android.material.textfield.TextInputLayout
-android:id="@+id/passwordLayout"
-android:layout_width="match_parent"
-android:layout_height="wrap_content">
-        <com.example.validator.CustomEditText
-android:id="@+id/passwordEditText"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:hint="@string/password"
-android:inputType="textPassword"/>
-    </com.google.android.material.textfield.TextInputLayout>
+// Change both colors
+validationManager.addField(customEditText, validator, Color.RED, Color.GREEN);
+
+// Change only error color
+validationManager.addField(customEditText, validator, Color.RED, Constants.SUCCESS);
+
+// Change only success color
+validationManager.addField(customEditText, validator, Constants.ERROR, Color.GREEN);
+
+// Use default colors
+validationManager.addField(customEditText, validator);
 ```
 
-In your java file:
+## 💡 Usage Example
 
-- Import the library
+XML layout:
+
+```xml
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/passwordLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.example.validator.CustomEditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword"/>
+</com.google.android.material.textfield.TextInputLayout>
+```
+
+Java implementation:
 
 ```java
 import com.example.validator.*;
 import com.example.validator.Rules.*;
-```
 
-- Find View
-
-```java
+// Find view
 CustomEditText passwordEditText = findViewById(R.id.passwordEditText);
-```
 
-- Create the validator and
-
-```java
+// Create validator
 GeneralTextValidator passwordValidator = new GeneralTextValidator();
-```
 
-- Give the validator rules
-
-```java
-ValidationRule notEmptyRule = new ValidationRule() {
+// Add validation rules
+passwordValidator.addValidationRule(new ValidationRule() {
     @Override
     public boolean isValid(String input) {
         return !input.isEmpty();
@@ -208,71 +133,104 @@ ValidationRule notEmptyRule = new ValidationRule() {
     public String getErrorMessage() {
         return "This field cannot be empty";
     }
-};
-passwordValidator.addValidationRule(notEmptyRule);
+
+    @Override
+    public int getPriority() {
+        return 0;
+    }
+});
 ```
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/94d60878-3c69-4e8a-9d99-b927443489dd" width="200" alt="Empty-Filed">
 
 ```java
 passwordValidator.addValidationRule(new MinLength(8));
 ```
-
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/cab7e585-92c4-4809-bfce-707e8637c2ff" width="200" alt="At-Least-8-Chars">
 
 ```java
 passwordValidator.addValidationRule(new MaxLength(10));
 ```
-
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/1794f6d3-b35c-48e7-a6ad-4561b05034af" width="200" alt="Max-Of-10-Chars">
 
 ```java
 passwordValidator.addValidationRule(new ContainLowerCase(1));
 ```
-
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/de18e284-6811-4c7c-9698-ce1f37ec85fe" width="200" alt="At-Least-1-Lower-case">
 
 ```java
 passwordValidator.addValidationRule(new ContainUpperCase(1));
 ```
-
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/285c0ec8-5ea4-4b43-b077-f77d41ac23f5" width="200" alt="At-Least-1-Upper-Case">
 
 ```java
 passwordValidator.addValidationRule(new ContainNumber(1));
 ```
-
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/a5a5623f-7562-42d8-91fa-30a6663e4ae6" width="200" alt="At-Least-1-Number">
 
 ```java
 passwordValidator.addValidationRule(new ContainSpecialCharacter(1));
 ```
-
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/1a55065a-5c3d-4355-8253-70c7626aa4a4" width="200" alt="At-least-1-Special-Char">
 
-- Creating ValidationManager
-
 ```java
+// Create ValidationManager and add field
 ValidationManager validationManager = new ValidationManager();
-```
-
-- Add to the ValidationManager the CustomEditText and the validators (GeneralTextValidator)
-
-```java
 validationManager.addField(passwordEditText, passwordValidator);
 ```
-
 <img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/f91a2661-5cc7-42aa-9866-d58ec2c35382" width="200" alt="Valid">
 
-## Validation Test
+```java
+// Perform validation
+if (validationManager.validate()) {
+    // Input is valid
+} else {
+    // Input is invalid
+}
+```
 
-The library automatically checks the input whenever it changes and shows the error message if the
-input is invalid, but to do a manual check for all the validation together in the same time, you can
-use the following code:
+## 🚀 Advanced Usage: Rule Composition
+
+The Validator Library provides powerful rule composition capabilities using the `RuleBuilder` class and logical operations (AND, OR, NOT). This allows you to create complex validation logic by combining multiple rules.
+
+### RuleBuilder
+
+The `RuleBuilder` class offers methods to compose rules:
+
+- `RuleBuilder.and(ValidationRule... rules)`: Combines rules with AND logic
+- `RuleBuilder.or(ValidationRule... rules)`: Combines rules with OR logic
+- `RuleBuilder.not(ValidationRule rule)`: Negates a rule
+- `RuleBuilder.withPriority(ValidationRule rule, int priority)`: Assigns priority to a rule
+
+### Example of Complex Rule Composition
 
 ```java
-if(validationManager.validate()){
-        // The input is valid
-        }else{
-        // The input is invalid
-        }
+ValidationRule complexRule = RuleBuilder.and(
+    new MinLength(8),
+    RuleBuilder.or(
+        RuleBuilder.and(
+            new ContainLowerCase(1),
+            new ContainUpperCase(1),
+            new ContainNumber(1)
+        ),
+        new ContainSpecialCharacter(2)
+    ),
+    RuleBuilder.not(new GeneralContain("password"))
+);
+
+passwordValidator.addValidationRule(complexRule);
 ```
+
+This complex rule ensures that the password:
+1. Is at least 8 characters long
+2. Either contains at least one lowercase, one uppercase, and one number, OR contains at least two special characters
+3. Does not contain the word "password"
+
+By using rule composition, you can create sophisticated validation logic tailored to your specific requirements.
+
+## 📱 Example App
+
+This repository includes an example Android app that demonstrates the usage of the Validator Library. The app showcases various validation scenarios and how to implement them using the library. You can find the example app in the `app` directory of this repository. It's a great resource to see the library in action and to learn how to integrate it into your own projects.
+
+## 📄 License
+
+This project is [MIT](link-to-your-license) licensed.
