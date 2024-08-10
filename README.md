@@ -1,6 +1,6 @@
 # 🛡️ Validator Library
 
-A powerful and flexible validation library for Android developers to effortlessly validate user inputs with customizable rules, visual feedback, and complex rule compositions.
+Flexible validation library for Android developers to effortlessly validate user inputs with customizable rules, visual feedback, and complex rule compositions.
 
 ## ✨ Features
 
@@ -9,7 +9,6 @@ A powerful and flexible validation library for Android developers to effortlessl
 - 🧩 Easy composition of complex validation logic with RuleBuilder
 - 🚀 Automatic real-time input validation
 - 💼 Create custom validation rules
-- 📱 Example app included in the repository
 
 ## 📦 Installation
 
@@ -86,7 +85,7 @@ validationManager.addField(customEditText, validator, Color.RED, Color.GREEN);
 validationManager.addField(customEditText, validator, Color.RED, Constants.SUCCESS);
 
 // Change only success color
-validationManager.addField(customEditText, validator, Constants.ERROR, Color.GREEN);
+validationManager.addField(customEditText, validator, Color.GREEN, Constants.ERROR);
 
 // Use default colors
 validationManager.addField(customEditText, validator);
