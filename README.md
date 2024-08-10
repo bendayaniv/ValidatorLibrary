@@ -230,7 +230,3 @@ By using rule composition, you can create sophisticated validation logic tailore
 ## 📱 Example App
 
 This repository includes an example Android app that demonstrates the usage of the Validator Library. The app showcases various validation scenarios and how to implement them using the library. You can find the example app in the `app` directory of this repository. It's a great resource to see the library in action and to learn how to integrate it into your own projects.
-
-## 📄 License
-
-This project is [MIT](link-to-your-license) licensed.

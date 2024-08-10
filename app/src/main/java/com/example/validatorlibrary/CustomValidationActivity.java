@@ -70,8 +70,8 @@ public class CustomValidationActivity extends AppCompatActivity {
         creditCardValidator.addValidationRule(creditCardRule);
         validationManager.addField(creditCardEditText, creditCardValidator, Color.parseColor("#FF7F50"), Color.parseColor("#32CD32"));
 
-        // valid credit card - 3530111333300000
-        // invalid credit card - 12345678901234567890 (too long)
+        // Valid credit card: 3530111333300000
+        // Invalid credit card: 12345678901234567890 (too long)
 
         // Custom Password Strength Validator with RuleBuilder
         ValidationRule passwordStrengthRule = new ValidationRule() {
@@ -114,8 +114,8 @@ public class CustomValidationActivity extends AppCompatActivity {
         passwordStrengthValidator.addValidationRule(compositePasswordRule);
         validationManager.addField(passwordStrengthEditText, passwordStrengthValidator, Color.parseColor("#8A2BE2"), Color.parseColor("#20B2AA"));
 
-        // valid passwords - P@ssw0rd123, LongPassword123, Str0ng&SecureP@ssword
-        // invalid passwords - Sh0rt! (too short), password123! (no uppercase), password! (no number)
+        // Valid passwords: P@ssw0rd123, LongPassword123, Str0ng&SecureP@ssword
+        // Invalid passwords: Sh0rt! (too short), password123! (no uppercase), password! (no number)
 
         // Custom Palindrome Validator with RuleBuilder
         ValidationRule palindromeRule = new ValidationRule() {
@@ -145,6 +145,9 @@ public class CustomValidationActivity extends AppCompatActivity {
         GeneralTextValidator palindromeValidator = new GeneralTextValidator();
         palindromeValidator.addValidationRule(compositePalindromeRule);
         validationManager.addField(palindromeEditText, palindromeValidator, Color.parseColor("#FF4500"), Color.parseColor("#00CED1"));
+
+        // Valid palindromes: "A man a plan a canal Panama", "racecar"
+        // Invalid inputs: "hello" (not a palindrome), "12321" (contains numbers)
 
         submitButton.setOnClickListener(v -> {
             if (validationManager.validate()) {

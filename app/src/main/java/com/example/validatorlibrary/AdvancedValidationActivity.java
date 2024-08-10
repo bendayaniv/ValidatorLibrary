@@ -45,6 +45,8 @@ public class AdvancedValidationActivity extends AppCompatActivity {
         );
         passwordValidator.addValidationRule(passwordRule);
         validationManager.addField(passwordEditText, passwordValidator, Color.parseColor("#FF6B6B"), Color.parseColor("#4ECDC4"));
+        // Valid password: Str0ngP@ss
+        // Invalid password: weakpass (too short, no uppercase, no number, no special chars)
 
         // Phone number validator with custom error color
         GeneralTextValidator phoneValidator = new GeneralTextValidator();
@@ -52,6 +54,8 @@ public class AdvancedValidationActivity extends AppCompatActivity {
         phoneValidator.addValidationRule(new MinLength(10));
         phoneValidator.addValidationRule(new MaxLength(10));
         validationManager.addField(phoneEditText, phoneValidator, Color.parseColor("#F7B731"), Constants.SUCCESS);
+        // Valid phone: 1234567890
+        // Invalid phone: 123-456-7890 (contains non-numeric characters)
 
         // Custom validator
         GeneralTextValidator customValidator = new GeneralTextValidator();
@@ -61,6 +65,8 @@ public class AdvancedValidationActivity extends AppCompatActivity {
                 new StartsWith("demo")
         ));
         validationManager.addField(customEditText, customValidator, Color.parseColor("#5D5D5D"), Color.parseColor("#95A5A6"));
+        // Valid input: demo-example-content
+        // Invalid input: demo-content-test (ends with "test")
 
         submitButton.setOnClickListener(v -> {
             if (validationManager.validate()) {
