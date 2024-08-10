@@ -209,47 +209,45 @@ ValidationRule notEmptyRule = new ValidationRule() {
         return "This field cannot be empty";
     }
 };
-passwordValidator.
-
-addValidationRule(notEmptyRule);
+passwordValidator.addValidationRule(notEmptyRule);
 ```
-[Image: Empty-Filed validation example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/94d60878-3c69-4e8a-9d99-b927443489dd" width="200" alt="Empty-Filed">
 
 ```java
 passwordValidator.addValidationRule(new MinLength(8));
 ```
 
-[Image: At-Least-8-Chars validation example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/cab7e585-92c4-4809-bfce-707e8637c2ff" width="200" alt="At-Least-8-Chars">
 
 ```java
 passwordValidator.addValidationRule(new MaxLength(10));
 ```
 
-[Image: Max-Of-10-Chars validation example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/1794f6d3-b35c-48e7-a6ad-4561b05034af" width="200" alt="Max-Of-10-Chars">
 
 ```java
 passwordValidator.addValidationRule(new ContainLowerCase(1));
 ```
 
-[Image: At-Least-1-Lower-case validation example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/de18e284-6811-4c7c-9698-ce1f37ec85fe" width="200" alt="At-Least-1-Lower-case">
 
 ```java
 passwordValidator.addValidationRule(new ContainUpperCase(1));
 ```
 
-[Image: At-Least-1-Upper-Case validation example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/285c0ec8-5ea4-4b43-b077-f77d41ac23f5" width="200" alt="At-Least-1-Upper-Case">
 
 ```java
 passwordValidator.addValidationRule(new ContainNumber(1));
 ```
 
-[Image: At-Least-1-Number validation example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/a5a5623f-7562-42d8-91fa-30a6663e4ae6" width="200" alt="At-Least-1-Number">
 
 ```java
 passwordValidator.addValidationRule(new ContainSpecialCharacter(1));
 ```
 
-[Image: At-least-1-Special-Char validation example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/1a55065a-5c3d-4355-8253-70c7626aa4a4" width="200" alt="At-least-1-Special-Char">
 
 - Creating ValidationManager
 
@@ -263,7 +261,7 @@ ValidationManager validationManager = new ValidationManager();
 validationManager.addField(passwordEditText, passwordValidator);
 ```
 
-[Image: Valid input example]
+<img src="https://github.com/bendayaniv/ValidatorLibrary/assets/52703125/f91a2661-5cc7-42aa-9866-d58ec2c35382" width="200" alt="Valid">
 
 ## Validation Test
 
